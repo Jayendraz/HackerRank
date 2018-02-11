@@ -1,0 +1,83 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static void miniMaxSum(int[] arr) {
+        int min = Integer.MAX_VALUE;
+        int [] result = new int[arr.length];
+        for(int i=0; i<arr.length; i++){
+            int sum = 0;
+            for(int j=0; j<arr.length; j++){
+                sum = sum + arr[j];
+            }
+            sum = sum - arr[i];
+            result[i] = sum;
+        }
+        
+        int maxValue = result[0];
+        for (int i = 1; i < result.length; i++) {
+            if (result[i] > maxValue) {
+                maxValue = result[i];
+            }
+        }
+        
+        int minValue = result[0];
+        for (int i = 1; i < result.length; i++) {
+            if (result[i] < minValue) {
+                minValue = result[i];
+            }
+        }
+        
+        System.out.println(minValue +" "+ maxValue);
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int[] arr = new int[5];
+        for(int arr_i = 0; arr_i < 5; arr_i++){
+            arr[arr_i] = in.nextInt();
+        }
+        miniMaxSum(arr);
+        in.close();
+    }
+}
+
+===========================================================
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static void miniMaxSum(int[] arr) { 
+        int maxValue = arr[0], minValue = arr[0], total = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            total = total + arr[i];
+            if (minValue > arr[i]) {
+                minValue = arr[i];
+            }
+            if (maxValue < arr[i]){
+                maxValue = arr[i];
+            }
+        }
+        
+        System.out.println((total-maxValue) +" "+(total-minValue));
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int[] arr = new int[5];
+        for(int arr_i = 0; arr_i < 5; arr_i++){
+            arr[arr_i] = in.nextInt();
+        }
+        miniMaxSum(arr);
+        in.close();
+    }
+}
