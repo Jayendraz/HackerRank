@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        ArrayList[] arr_set = new ArrayList[n];
+        for(int i=0; i<n; i++){
+            arr_set[i] = new ArrayList<Integer>();
+            int s = in.nextInt();
+            for(int j=0; j<s; j++){
+                arr_set[i].add(in.nextInt());
+            }
+        }
+        int k = in.nextInt();
+        for(int i=0; i<k; i++){
+            int line = in.nextInt();
+            int position = in.nextInt();
+            try{
+                System.out.println(arr_set[line-1].get(position-1));    
+            }
+            catch(Exception e){
+                System.out.println("ERROR!");
+            }
+            
+        }
+        
+        
+        
+    }
+}

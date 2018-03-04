@@ -1,0 +1,5 @@
+select co.continent, round(avg(c.population),0) as population_avg
+from country as co
+inner join city as c
+on c.countrycode = co.code
+group by co.continent

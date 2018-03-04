@@ -1,0 +1,4 @@
+select sum(population) as populations
+from city
+group by district
+having district = 'california';
